@@ -15,7 +15,8 @@
 body {
   width: 400px;
   padding: 20px;
-  font-family: 'Consolas', 'Monaco', 'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', monospace;
+  font-family: 'Consolas', 'Monaco', 'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    monospace;
   background-color: var(--bg-primary);
   color: var(--text-primary);
 }
@@ -239,7 +240,8 @@ h2 {
   font-size: 12px;
   color: var(--text-primary);
   opacity: 0.7;
-  font-family: 'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Consolas', 'Monaco', monospace;
+  font-family: 'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Consolas', 'Monaco',
+    monospace;
 }
 
 .copy-button {
@@ -329,7 +331,8 @@ h2 {
   font-size: 12px;
   color: var(--text-primary);
   opacity: 0.8;
-  font-family: 'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Consolas', 'Monaco', monospace;
+  font-family: 'Noto Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Consolas', 'Monaco',
+    monospace;
 }
 
 .author-link {
@@ -342,4 +345,4 @@ h2 {
 
 .author-link:hover {
   color: var(--accent-primary);
-} 
+}

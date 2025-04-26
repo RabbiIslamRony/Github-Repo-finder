@@ -13,11 +13,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Suggested keywords based on repository data
   const suggestedKeywords = [
-    'javascript', 'python', 'react', 'vue', 'angular',
-    'node', 'express', 'django', 'flask', 'spring',
-    'docker', 'kubernetes', 'aws', 'azure', 'gcp',
-    'machine-learning', 'ai', 'data-science', 'web',
-    'mobile', 'api', 'database', 'security', 'testing'
+    'javascript',
+    'python',
+    'react',
+    'vue',
+    'angular',
+    'node',
+    'express',
+    'django',
+    'flask',
+    'spring',
+    'docker',
+    'kubernetes',
+    'aws',
+    'azure',
+    'gcp',
+    'machine-learning',
+    'ai',
+    'data-science',
+    'web',
+    'mobile',
+    'api',
+    'database',
+    'security',
+    'testing',
   ];
 
   // Initialize keyword suggestions
@@ -36,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Load saved API token
-  chrome.storage.local.get(['githubToken'], (result) => {
+  chrome.storage.local.get(['githubToken'], result => {
     if (result.githubToken) {
       apiToken = result.githubToken;
       apiTokenInput.value = '********'; // Show masked token
@@ -63,21 +82,22 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = await fetch('https://api.github.com/user/repos', {
         headers: {
-          'Authorization': `token ${apiToken}`,
-          'Accept': 'application/vnd.github.v3+json'
-        }
+          Authorization: `token ${apiToken}`,
+          Accept: 'application/vnd.github.v3+json',
+        },
       });
-      
+
       if (!response.ok) {
         throw new Error('Failed to fetch personal repositories');
       }
-      
+
       allRepositories = await response.json();
       displayRepositories(allRepositories);
       updateRepoCount(allRepositories.length);
     } catch (error) {
       console.error('Error fetching personal repositories:', error);
-      repoList.innerHTML = '<div class="error">Error loading repositories. Please check your API token.</div>';
+      repoList.innerHTML =
+        '<div class="error">Error loading repositories. Please check your API token.</div>';
     }
   }
 
@@ -90,7 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
       updateRepoCount(allRepositories.length);
     } catch (error) {
       console.error('Error fetching repositories:', error);
-      repoList.innerHTML = '<div class="error">Error loading repositories. Please try again later.</div>';
+      repoList.innerHTML =
+        '<div class="error">Error loading repositories. Please try again later.</div>';
     }
   }
 
@@ -119,9 +140,10 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const filteredRepos = allRepositories.filter(repo => 
-      repo.name.toLowerCase().includes(query.toLowerCase()) ||
-      repo.full_name.toLowerCase().includes(query.toLowerCase())
+    const filteredRepos = allRepositories.filter(
+      repo =>
+        repo.name.toLowerCase().includes(query.toLowerCase()) ||
+        repo.full_name.toLowerCase().includes(query.toLowerCase())
     );
     displayRepositories(filteredRepos);
     updateRepoCount(filteredRepos.length);
@@ -149,20 +171,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to display repositories
   function displayRepositories(repositories) {
     repoList.innerHTML = '';
-    
+
     if (repositories.length === 0) {
       repoList.innerHTML = '<div class="no-results">No repositories found</div>';
       return;
     }
-    
+
     repositories.forEach(repo => {
       const repoElement = document.createElement('div');
       repoElement.className = 'repo-item';
-      
+
       // Create star and fork emojis with proper encoding
       const starEmoji = '\u{2B50}'; // ⭐
       const forkEmoji = '\u{1F4BB}'; // 💻
-      
+
       repoElement.innerHTML = `
         <div class="repo-name">${repo.full_name}</div>
         <div class="repo-description">${repo.description || 'No description available'}</div>
@@ -172,28 +194,28 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <button class="copy-button" data-url="${repo.html_url}">Copy Link</button>
       `;
-      
+
       // Add click event to open repository
-      repoElement.addEventListener('click', (e) => {
+      repoElement.addEventListener('click', e => {
         // Don't open if clicking on the copy button
         if (!e.target.classList.contains('copy-button')) {
           window.open(repo.html_url, '_blank');
         }
       });
-      
+
       // Add click event to copy button
       const copyButton = repoElement.querySelector('.copy-button');
-      copyButton.addEventListener('click', (e) => {
+      copyButton.addEventListener('click', e => {
         e.stopPropagation(); // Prevent repository click event
         copyToClipboard(repo.html_url);
       });
-      
+
       repoList.appendChild(repoElement);
     });
   }
 
   // Debounced search function
-  const debouncedSearch = debounce((query) => {
+  const debouncedSearch = debounce(query => {
     searchRepositories(query);
   }, 300);
 
@@ -201,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeKeywordSuggestions();
 
   // Event listener for search input
-  searchInput.addEventListener('input', (e) => {
+  searchInput.addEventListener('input', e => {
     const query = e.target.value.trim();
     debouncedSearch(query);
   });
@@ -213,10 +235,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Event listener for Enter key
-  searchInput.addEventListener('keypress', (e) => {
+  searchInput.addEventListener('keypress', e => {
     if (e.key === 'Enter') {
       const query = searchInput.value.trim();
       debouncedSearch(query);
     }
   });
-}); 
+});

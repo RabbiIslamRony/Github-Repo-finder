@@ -18,6 +18,7 @@ A powerful Chrome extension that helps you quickly search and find GitHub reposi
 ## 🚀 Installation
 
 ### For Users
+
 1. Download the extension files
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode" in the top right corner
@@ -25,6 +26,7 @@ A powerful Chrome extension that helps you quickly search and find GitHub reposi
 5. The extension icon will appear in your Chrome toolbar
 
 ### For Developers
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/rabbiislamrony/github-repo-finder.git
@@ -38,17 +40,20 @@ A powerful Chrome extension that helps you quickly search and find GitHub reposi
 ## 💡 Usage
 
 1. **Personal Repository Search**:
+
    - Get your GitHub API token from [GitHub Settings](https://github.com/settings/tokens)
    - Enter your token in the extension
    - Click "Save Token"
    - Your personal repositories will be loaded
 
 2. **Searching Repositories**:
+
    - Type in the search box to find repositories
    - Use suggested keywords for quick access
    - Click on any repository to open it in a new tab
 
 3. **View Repository Details**:
+
    - Repository name and description
    - Star count
    - Fork count
@@ -62,6 +67,7 @@ A powerful Chrome extension that helps you quickly search and find GitHub reposi
 ## 🛠️ Technical Details
 
 ### File Structure
+
 ```
 github-repo-finder/
 ├── manifest.json      # Extension configuration
@@ -76,6 +82,7 @@ github-repo-finder/
 ```
 
 ### Technologies Used
+
 - HTML5
 - CSS3
 - JavaScript (ES6+)
@@ -83,12 +90,14 @@ github-repo-finder/
 - Chrome Extension API
 
 ### API Endpoints Used
+
 - `/user/repos` - For personal repositories
 - `/repositories` - For public repositories
 
 ## 🔑 GitHub API Token
 
 To use personal repository search:
+
 1. Go to GitHub.com → Settings → Developer Settings → Personal Access Tokens
 2. Generate a new token with `repo` scope
 3. Copy the token and paste it in the extension
@@ -97,16 +106,24 @@ To use personal repository search:
 ## 🎨 Customization
 
 ### Adding More Keywords
+
 Edit the `suggestedKeywords` array in `popup.js`:
+
 ```javascript
 const suggestedKeywords = [
-  'javascript', 'python', 'react', 'vue', 'angular',
+  'javascript',
+  'python',
+  'react',
+  'vue',
+  'angular',
   // Add your keywords here
 ];
 ```
 
 ### Styling
+
 Modify `styles.css` to change the appearance:
+
 - Colors
 - Layout
 - Font sizes
@@ -131,6 +148,7 @@ copies or substantial portions of the Software.
 ## 👨‍💻 Author
 
 **Rabbi Islam Rony**
+
 - GitHub: [@rabiiislamrony](https://github.com/rabbiislamrony)
 - LinkedIn: [Rabbi Islam Rony](https://www.linkedin.com/in/rabbiislamrony)
 
@@ -147,6 +165,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📞 Support
 
 If you have any questions or need help, please:
+
 1. Open an issue in the GitHub repository
 2. Contact me through LinkedIn
 3. Send an email to [rony.sovware@gmail.com]
