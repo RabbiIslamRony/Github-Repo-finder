@@ -7,6 +7,7 @@ A Chrome extension that helps you quickly search and find GitHub repositories.
 - Search GitHub repositories directly from your browser
 - View repository details including name and description
 - Click on repositories to open them in a new tab
+- Copy repository links with a single click
 - Clean and modern user interface
 
 ## Installation
@@ -22,6 +23,7 @@ A Chrome extension that helps you quickly search and find GitHub repositories.
 2. Enter your search query in the search box
 3. Press Enter or click the Search button
 4. Click on any repository to open it in a new tab
+5. Use the "Copy Link" button to copy a repository URL to your clipboard
 
 ## Development
 

@@ -12,6 +12,7 @@ A powerful Chrome extension that helps you quickly search and find GitHub reposi
 - **Smart Suggestions**: Quick access to popular technology keywords
 - **Repository Statistics**: View stars and forks count for each repository
 - **One-Click Access**: Direct access to repositories with a single click
+- **Copy Repository Links**: Easily copy repository URLs to your clipboard
 - **Clean Interface**: Modern and user-friendly design
 
 ## 🚀 Installation
@@ -52,6 +53,11 @@ A powerful Chrome extension that helps you quickly search and find GitHub reposi
    - Star count
    - Fork count
    - Direct link to the repository
+
+4. **Copy Repository Links**:
+   - Click the "Copy Link" button on any repository
+   - The repository URL will be copied to your clipboard
+   - A notification will appear confirming the copy action
 
 ## 🛠️ Technical Details
 

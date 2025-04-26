@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const saveTokenButton = document.getElementById('saveToken');
   const repoCount = document.getElementById('repoCount');
   const keywordSuggestions = document.getElementById('keywordSuggestions');
+  const copyNotification = document.getElementById('copyNotification');
   let allRepositories = [];
   let apiToken = '';
   let debounceTimer;
@@ -126,6 +127,25 @@ document.addEventListener('DOMContentLoaded', () => {
     updateRepoCount(filteredRepos.length);
   }
 
+  // Function to show copy notification
+  function showCopyNotification() {
+    copyNotification.classList.add('show');
+    setTimeout(() => {
+      copyNotification.classList.remove('show');
+    }, 2000);
+  }
+
+  // Function to copy text to clipboard
+  function copyToClipboard(text) {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    showCopyNotification();
+  }
+
   // Function to display repositories
   function displayRepositories(repositories) {
     repoList.innerHTML = '';
@@ -138,17 +158,34 @@ document.addEventListener('DOMContentLoaded', () => {
     repositories.forEach(repo => {
       const repoElement = document.createElement('div');
       repoElement.className = 'repo-item';
+      
+      // Create star and fork emojis with proper encoding
+      const starEmoji = '\u{2B50}'; // ⭐
+      const forkEmoji = '\u{1F4BB}'; // 💻
+      
       repoElement.innerHTML = `
         <div class="repo-name">${repo.full_name}</div>
         <div class="repo-description">${repo.description || 'No description available'}</div>
         <div class="repo-stats">
-          <span>⭐ ${repo.stargazers_count}</span>
-          <span>🔄 ${repo.forks_count}</span>
+          <span>${starEmoji} ${repo.stargazers_count}</span>
+          <span>${forkEmoji} ${repo.forks_count}</span>
         </div>
+        <button class="copy-button" data-url="${repo.html_url}">Copy Link</button>
       `;
       
-      repoElement.addEventListener('click', () => {
-        window.open(repo.html_url, '_blank');
+      // Add click event to open repository
+      repoElement.addEventListener('click', (e) => {
+        // Don't open if clicking on the copy button
+        if (!e.target.classList.contains('copy-button')) {
+          window.open(repo.html_url, '_blank');
+        }
+      });
+      
+      // Add click event to copy button
+      const copyButton = repoElement.querySelector('.copy-button');
+      copyButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent repository click event
+        copyToClipboard(repo.html_url);
       });
       
       repoList.appendChild(repoElement);
