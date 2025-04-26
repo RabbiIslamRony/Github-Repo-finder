@@ -12,7 +12,7 @@ const includeFiles = [
   'styles.css',
   'icons',
   'README.md',
-  'LICENSE'
+  'LICENSE',
 ];
 
 // Files and directories to exclude
@@ -25,7 +25,7 @@ const excludePatterns = [
   '.prettierignore',
   'package.json',
   'package-lock.json',
-  'scripts'
+  'scripts',
 ];
 
 async function build() {
@@ -57,11 +57,10 @@ async function build() {
     console.log(`   1. Check the contents of the /dist directory`);
     console.log(`   2. Test the extension from the /dist directory`);
     console.log(`   3. Package can be found at: ${zipFilePath}`);
-
   } catch (error) {
     console.error('❌ Build failed:', error);
     process.exit(1);
   }
 }
 
-build(); 
+build();

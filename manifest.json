@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "GitHub Repo Finder",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Find and navigate to GitHub repositories easily",
   "permissions": ["activeTab", "storage"],
   "host_permissions": ["https://api.github.com/*"],
