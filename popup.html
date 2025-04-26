@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Repo Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>GitHub Repo Finder</h1>
+    <div class="api-token-container">
+      <input type="password" id="apiToken" placeholder="Enter GitHub API Token">
+      <button id="saveToken">Save Token</button>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search repositories...">
+      <button id="searchButton">Search</button>
+    </div>
+    <div class="suggestions-container">
+      <div class="suggestions-title">Suggested Keywords:</div>
+      <div id="keywordSuggestions" class="keyword-suggestions"></div>
+    </div>
+    <div class="repos-container">
+      <div class="repos-header">
+        <h2>All Repositories</h2>
+        <div id="repoCount" class="repo-count">0 repositories found</div>
+      </div>
+      <div id="repoList">
+        <div class="loading">Loading repositories...</div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-content">
+        <span>Made with ❤️ by</span>
+        <a href="https://github.com/rabbiislamrony" target="_blank" class="author-link">Rabbi Islam Rony</a>
+      </div>
+    </footer>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html> 
