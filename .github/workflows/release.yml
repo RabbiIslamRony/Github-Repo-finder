@@ -6,15 +6,23 @@ on:
       - 'v*'
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Create ZIP file
-        run: |
-          zip -r github-repo-finder.zip . -x "*.git*" "*.github*" "*.DS_Store"
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build extension
+        run: npm run build
 
       - name: Create Release
         id: create_release
@@ -33,6 +41,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./github-repo-finder.zip
-          asset_name: github-repo-finder.zip
+          asset_path: ./dist/extension.zip
+          asset_name: extension.zip
           asset_content_type: application/zip 
