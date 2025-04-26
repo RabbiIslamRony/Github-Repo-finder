@@ -34,6 +34,27 @@ The extension is built using:
 - JavaScript (ES6+)
 - GitHub REST API
 
+### Requirements
+
+- Node.js LTS (v20.15.0 or later)
+
+### Version Updates
+
+When creating a new release, you can update the version numbers across all project files using:
+
+```bash
+npm run version <new-version>
+```
+
+For example:
+```bash
+npm run version 1.0.8
+```
+
+This will automatically update the version numbers in:
+- package.json
+- manifest.json
+
 ## License
 
 MIT License # Github-Repo-finder
