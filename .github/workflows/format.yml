@@ -1,0 +1,38 @@
+name: Format Code
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Prettier
+        run: npm install --save-dev prettier
+
+      - name: Check formatting
+        run: npx prettier --check "**/*.{js,jsx,ts,tsx,json,css,scss,md,html}"
+
+      - name: Format code
+        run: npx prettier --write "**/*.{js,jsx,ts,tsx,json,css,scss,md,html}"
+
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "style: format code with Prettier"
+          branch: ${{ github.head_ref }}
+          create_branch: false 

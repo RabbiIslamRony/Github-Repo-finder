@@ -1,0 +1,21 @@
+{
+  "name": "github-repo-finder",
+  "version": "1.0.0",
+  "description": "A Chrome extension that helps you quickly search and find GitHub repositories",
+  "main": "popup.js",
+  "scripts": {
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md,html}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,scss,md,html}\""
+  },
+  "keywords": [
+    "chrome-extension",
+    "github",
+    "repository",
+    "search"
+  ],
+  "author": "Rabbi Islam Rony",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.8.8"
+  }
+} 
