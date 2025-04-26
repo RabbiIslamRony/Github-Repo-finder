@@ -18,8 +18,8 @@
   "author": "Rabbi Islam Rony",
   "license": "MIT",
   "devDependencies": {
+    "fs-extra": "^11.1.1",
     "prettier": "^2.8.8",
-    "rimraf": "^5.0.1",
-    "fs-extra": "^11.1.1"
+    "rimraf": "^5.0.1"
   }
 }
