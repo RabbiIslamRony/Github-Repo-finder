@@ -26,6 +26,7 @@ A powerful Chrome extension that helps you quickly search and find GitHub reposi
 5. The extension icon will appear in your Chrome toolbar
 
 ### For Developers
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/rabbiislamrony/github-repo-finder.git
