@@ -20,4 +20,12 @@ yarn-debug.log*
 yarn-error.log*
 
 # Dependencies
-node_modules/ 
+node_modules/
+
+# Distribution
+dist/
+*.zip
+
+# Distribution
+dist/
+*.zip 
